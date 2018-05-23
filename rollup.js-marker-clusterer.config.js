@@ -21,5 +21,5 @@ export default {
     format: 'umd'
   },
   context: 'window',
-  external: ['rxjs', '@angular/core', 'rxjs', '@agm/core', 'js-marker-clusterer']
+  external: ['rxjs', '@angular/core', '@agm/core', 'js-marker-clusterer']
 }

@@ -20,5 +20,5 @@ export default {
     format: 'umd'
   },
   context: 'window',
-  external: ['rxjs', '@angular/core', 'rxjs']
+  external: ['rxjs', '@angular/core']
 }

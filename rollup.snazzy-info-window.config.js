@@ -22,5 +22,5 @@ export default {
   },
   experimentalDynamicImport: true,
   context: 'window',
-  external: ['rxjs', '@angular/core', 'rxjs', '@agm/core']
+  external: ['rxjs', '@angular/core', '@agm/core']
 }
