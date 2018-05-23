@@ -98,7 +98,7 @@ export class MarkerManager {
   }
 
   createEventObservable<T>(eventName: string, marker: AgmMarker): Observable<T> {
-    return Observable.create((observer: Observer<T>) => {
+    return new Observable((observer: Observer<T>) => {
       this._markers.get(marker).then((m: Marker) => {
         m.addListener(eventName, (e: T) => this._zone.run(() => observer.next(e)));
       });

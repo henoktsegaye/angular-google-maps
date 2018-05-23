@@ -68,7 +68,7 @@ export class DataLayerManager {
    * Creates a Google Maps event listener for the given DataLayer as an Observable
    */
   createEventObservable<T>(eventName: string, layer: AgmDataLayer): Observable<T> {
-    return Observable.create((observer: Observer<T>) => {
+    return new Observable((observer: Observer<T>) => {
       this._layers.get(layer).then((d: Data) => {
         d.addListener(eventName, (e: T) => this._zone.run(() => observer.next(e)));
       });

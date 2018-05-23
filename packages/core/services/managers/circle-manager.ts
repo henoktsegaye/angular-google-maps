@@ -79,7 +79,7 @@ export class CircleManager {
   }
 
   createEventObservable<T>(eventName: string, circle: AgmCircle): Observable<T> {
-    return Observable.create((observer: Observer<T>) => {
+    return new Observable((observer: Observer<T>) => {
       let listener: mapTypes.MapsEventListener = null;
       this._circles.get(circle).then((c) => {
         listener = c.addListener(eventName, (e: T) => this._zone.run(() => observer.next(e)));

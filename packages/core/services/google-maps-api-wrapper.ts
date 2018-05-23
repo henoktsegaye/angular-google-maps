@@ -97,7 +97,7 @@ export class GoogleMapsAPIWrapper {
   }
 
   subscribeToMapEvent<E>(eventName: string): Observable<E> {
-    return Observable.create((observer: Observer<E>) => {
+    return new Observable((observer: Observer<E>) => {
       this._map.then((m: mapTypes.GoogleMap) => {
         m.addListener(eventName, (arg: E) => { this._zone.run(() => observer.next(arg)); });
       });

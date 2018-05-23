@@ -56,7 +56,7 @@ export class PolygonManager {
   }
 
   createEventObservable<T>(eventName: string, path: AgmPolygon): Observable<T> {
-    return Observable.create((observer: Observer<T>) => {
+    return new Observable((observer: Observer<T>) => {
       this._polygons.get(path).then((l: Polygon) => {
         l.addListener(eventName, (e: T) => this._zone.run(() => observer.next(e)));
       });
