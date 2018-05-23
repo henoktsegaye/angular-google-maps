@@ -58,11 +58,6 @@ module.exports = function makeWebpackConfig() {
     extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html'],
   };
 
-  var atlOptions = '';
-  if (isTest && !isTestWatch) {
-    // awesome-typescript-loader needs to output inlineSourceMap for code coverage to work with source maps.
-    atlOptions = 'inlineSourceMap=true&sourceMap=false';
-  }
 
   /**
    * Loaders
@@ -73,11 +68,8 @@ module.exports = function makeWebpackConfig() {
   config.module = {
     rules: [
       // Support for .ts files.
-      {
-        test: /\.ts$/,
-        loaders: ['awesome-typescript-loader?' + atlOptions, 'angular2-template-loader'],
-        exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
-      },
+      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+      { test: /\.tsx?$/, loader: 'ts-loader' },
 
       // copy those assets to output
       {

@@ -94,6 +94,7 @@
     "rxjs": "^6.1.0",
     "snazzy-info-window": "^1.1.1",
     "ts-helpers": "^1.1.2",
+    "ts-loader": "^4.3.0",
     "tslint": "^5.8.0",
     "tslint-loader": "^3.4.3",
     "typescript": "~2.7.2",
