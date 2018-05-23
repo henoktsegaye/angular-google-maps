@@ -18,8 +18,9 @@ export default {
       '@agm/core': 'ngmaps.core'
     },
     sourceMap: true,
-    format: 'umd'
+    format: 'umd',
   },
+  experimentalDynamicImport: true,
   context: 'window',
   external: ['rxjs', '@angular/core', 'rxjs', '@agm/core']
 }

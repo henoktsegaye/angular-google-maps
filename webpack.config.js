@@ -5,7 +5,6 @@ var webpack = require('webpack');
 
 // Webpack Plugins
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /**
@@ -89,14 +88,6 @@ module.exports = function makeWebpackConfig() {
       // Support for *.json files.
       {test: /\.json$/, loader: 'json-loader'},
 
-      // Support for CSS as raw text
-      // use 'null' loader in test mode (https://github.com/webpack/null-loader)
-      // all css in packages/style will be bundled in an external css file
-      {
-        test: /\.css$/,
-        exclude: root('packages', 'app'),
-        loader: isTest ? 'null-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'postcss-loader']})
-      },
       // all css required in src/app files will be merged in js files
       {test: /\.css$/, include: root('packages', 'app'), loader: 'raw-loader!postcss-loader'},
 
